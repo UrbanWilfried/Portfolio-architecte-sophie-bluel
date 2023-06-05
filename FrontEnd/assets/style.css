@@ -125,6 +125,38 @@ li:hover {
 	text-align: center;
 	margin-bottom: 1em;
 }
+
+.filter {
+	display: flex;
+	justify-content: center;
+	margin: 51px 0;
+}
+.filter p {
+	color: #1D6154;
+	font-size: 16px;
+	font-weight: 700;
+	font-family: 'Syne';
+	text-align: center;
+}
+.filter-button {
+	padding: 9px 0;
+	margin-right: 10px;
+	border: 1px solid #1D6154;
+	border-radius: 60px;
+}
+.All {
+	width: 100px;
+}
+.Objects {
+	width: 100px;
+}
+.Apartements {
+	width: 157px;
+}
+.Hotels {
+	width: 198px;
+}
+
 .gallery {
 	width: 100%;
 	display: grid;
