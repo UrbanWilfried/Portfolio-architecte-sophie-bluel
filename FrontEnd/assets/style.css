@@ -138,11 +138,17 @@ li:hover {
 	font-family: 'Syne';
 	text-align: center;
 }
+.filter p:active {
+	color: #e5e5e5;
+}
 .filter-button {
 	padding: 9px 0;
 	margin-right: 10px;
 	border: 1px solid #1D6154;
 	border-radius: 60px;
+}
+.filter-button:active {
+	background-color: #1D6154;
 }
 .All {
 	width: 100px;
