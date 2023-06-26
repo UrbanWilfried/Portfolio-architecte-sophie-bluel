@@ -21,36 +21,44 @@ function creerWok(work){
     let divGallery=document.querySelector(".gallery")
     divGallery.appendChild(figur)
 }
-*/
+
 const works = fetch("http://localhost:5678/api/works").then(response => response.json())
+*/
 
-const buttonObjects = document.querySelector(".Objects")
-const buttonApartements = document.querySelector(".Apartements")
-const buttonHotels = document.querySelector(".Hotels")
-const buttonAll = document.querySelector(".All")
-
-
-buttonObjects.addEventListener("click", function () {
-    const filterObjects = works.filter(work => work.category.name === "Objets")
-    
-    console.log(filterObjects)
-})
+import createGallery from "./assets/gallery.js";
+import createFilters from "./assets/filters.js";
 
 const fetchWorks = async () => {
     const response = await fetch("http://localhost:5678/api/works")
-
     return response.json()
-}
+};
+
+const filters = document.querySelectorAll(".filter-button");
 
 const init = async () => {
-    const works2 = await fetchWorks()
-    renderWorks(works2)
-    console.log({works2})
-}
+  const works = await fetchWorks();
+  renderWorks(works);
+  const worksData = await fetchWorks();
+  const gallery = createGallery({ works: worksData });
+  gallery.renderGallery();
+  filters.forEach((filter) => {
+    filter.addEventListener("click", function (e) {
+      const filterName = this.getAttribute("data-id");
+      const filterObjects = works.filter((work) =>
+        filterName === "All" ? work : work.category.name === filterName
+      );
+      renderWorks(filterObjects);
+    });
+  });
+  createFilters({
+    worksData,
+    onSelectFilter: (filteredWorks) => {
+      gallery.setGallery(filteredWorks);
+    }
+  });
+};
 
 init()
-
-
 
 const renderWorks = (works) => {
     let template= ''
