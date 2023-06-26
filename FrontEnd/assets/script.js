@@ -25,8 +25,8 @@ function creerWok(work){
 const works = fetch("http://localhost:5678/api/works").then(response => response.json())
 */
 
-import createGallery from "./assets/gallery.js";
-import createFilters from "./assets/filters.js";
+import createGallery from "./gallery.js";
+import createFilters from "./filters.js";
 
 const fetchWorks = async () => {
     const response = await fetch("http://localhost:5678/api/works")
