@@ -15,4 +15,3 @@ const createFilters = ({ worksData, onSelectFilter }) => {
   };
   
   export default createFilters;
-  

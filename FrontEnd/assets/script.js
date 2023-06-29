@@ -74,3 +74,4 @@ const renderWorks = (works) => {
       document.getElementById('gallery').innerHTML = template
       
     }
+ 
