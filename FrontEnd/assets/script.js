@@ -1,30 +1,3 @@
-/*fetch("http://localhost:5678/api/works")
-.then(reponce=>{
-    return reponce.json()
-})
-.then(data=>{
-    for(let work of data){
-        creerWok(work)
-    }
-})
-
-function creerWok(work){
-    let figur=document.createElement("figure")
-    let image=document.createElement("img")
-    image.setAttribute("src",work.imageUrl)
-    image.setAttribute("alt",work.title)
-    let figcaption=document.createElement("figcaption")
-    figcaption.textContent=work.title
-    figur.appendChild(image)
-    figur.appendChild(figcaption)
-
-    let divGallery=document.querySelector(".gallery")
-    divGallery.appendChild(figur)
-}
-
-const works = fetch("http://localhost:5678/api/works").then(response => response.json())
-*/
-
 import createGallery from "./gallery.js";
 import createFilters from "./filters.js";
 
@@ -33,23 +6,10 @@ const fetchWorks = async () => {
     return response.json()
 };
 
-const filters = document.querySelectorAll(".filter-button");
-
 const init = async () => {
-  const works = await fetchWorks();
-  renderWorks(works);
   const worksData = await fetchWorks();
   const gallery = createGallery({ works: worksData });
   gallery.renderGallery();
-  filters.forEach((filter) => {
-    filter.addEventListener("click", function (e) {
-      const filterName = this.getAttribute("data-id");
-      const filterObjects = works.filter((work) =>
-        filterName === "All" ? work : work.category.name === filterName
-      );
-      renderWorks(filterObjects);
-    });
-  });
   createFilters({
     worksData,
     onSelectFilter: (filteredWorks) => {
@@ -60,7 +20,7 @@ const init = async () => {
 
 init()
 
-const renderWorks = (works) => {
+/*const renderWorks = (works) => {
     let template= ''
       works.forEach(work => {
         template += `
@@ -73,5 +33,4 @@ const renderWorks = (works) => {
     
       document.getElementById('gallery').innerHTML = template
       
-    }
- 
+    }*/
