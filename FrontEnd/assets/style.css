@@ -47,6 +47,31 @@ table {
 	border-spacing: 0;
 }
 /** end reset css**/
+.bannerEdit {
+	font-size: 16px;
+	background-color: black;
+	display: flex;
+	justify-content: center;
+}
+.bannerEdit .edit {
+	color: white;
+	text-decoration: none;
+	margin: 19px 11px 0;
+}
+.bannerEdit svg {
+	vertical-align: text-top;
+}
+.bannerEdit p {
+	padding: 11px 23px;
+	margin: 10px;
+	background-color: white;
+	border: 1px solid white;
+	border-radius: 60px;
+}
+.editDescription svg {
+	font-size: 14px;
+	color: black;
+}
 body {
 	max-width: 1140px;
 	margin:auto;
