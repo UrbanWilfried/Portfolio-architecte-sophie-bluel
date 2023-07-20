@@ -50,7 +50,7 @@ table {
 .bannerEdit {
 	font-size: 16px;
 	background-color: black;
-	display: flex;
+	display: flex; /* none;*/
 	justify-content: center;
 }
 .bannerEdit .edit {
@@ -68,9 +68,21 @@ table {
 	border: 1px solid white;
 	border-radius: 60px;
 }
-.editDescription svg {
-	font-size: 14px;
-	color: black;
+.editImage {
+	/*visibility: hidden;*/
+	margin: 18px 0 0 58px;
+}
+.editTitre {
+	display: flex;
+	justify-content: center;
+}
+.editProject {
+	/*visibility: hidden;*/
+	position: relative;
+	top: 7px; left: 170px;
+}
+#portfolio h2 {
+	position: absolute;
 }
 body {
 	max-width: 1140px;
@@ -158,6 +170,7 @@ li a:hover {
 }
 
 .filter {
+	visibility: hidden; /**/
 	display: flex;
 	justify-content: center;
 	margin: 51px 0;
