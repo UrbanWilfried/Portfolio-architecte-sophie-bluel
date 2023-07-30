@@ -20,17 +20,3 @@ const init = async () => {
 
 init()
 
-/*const renderWorks = (works) => {
-    let template= ''
-      works.forEach(work => {
-        template += `
-        <figure>
-             <img alt="${work.title}" src="${work.imageUrl}"/>
-        <figcaption>${work.title}</figcaption>
-        </figure>
-             `
-       } )
-    
-      document.getElementById('gallery').innerHTML = template
-      
-    }*/

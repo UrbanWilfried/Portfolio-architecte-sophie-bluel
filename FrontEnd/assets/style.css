@@ -50,8 +50,11 @@ table {
 .bannerEdit {
 	font-size: 16px;
 	background-color: black;
-	display: flex; /* none;*/
+	display: none;
 	justify-content: center;
+}
+.bannerEdit .vu {
+	display: flex;
 }
 .bannerEdit .edit {
 	color: white;
@@ -69,17 +72,18 @@ table {
 	border-radius: 60px;
 }
 .editImage {
-	/*visibility: hidden;*/
 	margin: 18px 0 0 58px;
+	visibility: collapse;
+}
+.editImage .vu2 {
+	visibility: hidden;
 }
 .editTitre {
-	display: flex;
+	display: none;
 	justify-content: center;
 }
-.editProject {
-	/*visibility: hidden;*/
-	position: relative;
-	top: 7px; left: 170px;
+.editTitre .vu3 {
+	display: flex;
 }
 #portfolio h2 {
 	position: absolute;
@@ -276,3 +280,12 @@ footer nav ul {
 	margin: 2em
 }
 
+#contact .error{
+	color: #D8000C;
+	background-color: #FFBABA;
+	display: none;
+ }
+
+ #contact .error.toto{
+	display: block;
+ }
