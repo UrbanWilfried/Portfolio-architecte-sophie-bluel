@@ -53,18 +53,19 @@ table {
 	display: none;
 	justify-content: center;
 }
-.bannerEdit .vu {
+.editP {
 	display: flex;
-}
-.bannerEdit .edit {
 	color: white;
 	text-decoration: none;
 	margin: 19px 11px 0;
 }
+.editP p {
+ margin: 6px 0 0 10px;
+}
 .bannerEdit svg {
 	vertical-align: text-top;
 }
-.bannerEdit p {
+.editButton {
 	padding: 11px 23px;
 	margin: 10px;
 	background-color: white;
@@ -72,18 +73,25 @@ table {
 	border-radius: 60px;
 }
 .editImage {
+	display: flex;
 	margin: 18px 0 0 58px;
-	visibility: collapse;
-}
-.editImage .vu2 {
 	visibility: hidden;
 }
-.editTitre {
-	display: none;
-	justify-content: center;
+.editImage p {
+	margin: 6px 0 0 10px;
 }
-.editTitre .vu3 {
+.editTitre {
 	display: flex;
+	justify-content: center;
+	position: relative;
+}
+.editProject {
+	display: none;
+	position: absolute;
+	margin: 3px 0  0 340px;
+}
+.editProject p {
+	margin: 6px 0 0 10px;
 }
 #portfolio h2 {
 	position: absolute;
@@ -174,7 +182,6 @@ li a:hover {
 }
 
 .filter {
-	visibility: hidden; /**/
 	display: flex;
 	justify-content: center;
 	margin: 51px 0;
