@@ -1,6 +1,5 @@
 import createGallery from "./gallery.js";
 import createFilters from "./filters.js";
-import createFilters from "./modal.js";
 
 const bannerEdit = document.querySelector('.bannerEdit')
 const editImage = document.querySelector('.editImage')
