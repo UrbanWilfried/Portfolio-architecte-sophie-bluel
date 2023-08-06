@@ -88,6 +88,7 @@ table {
 .editProject {
 	display: none;
 	position: absolute;
+	border: none;
 	margin: 3px 0  0 340px;
 }
 .editProject p {
