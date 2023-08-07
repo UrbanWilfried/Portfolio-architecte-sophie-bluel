@@ -299,7 +299,7 @@ footer nav ul {
  }
 
  .c-dialog {
-	position: fixed;
+	/*position: fixed;*/
 	z-index: 100;
 	top: 0;
 	right: 0;
@@ -322,4 +322,7 @@ footer nav ul {
   .c-dialog[aria-hidden="true"] {
 	visibility: hidden;
 	opacity: 0;
+  }
+  .section2 {
+	display: none;
   }

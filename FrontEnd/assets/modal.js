@@ -33,11 +33,40 @@ document.addEventListener('DOMContentLoaded', () => {
           close(dismissDialog);
         });
       });
-  
+  /*
       window.addEventListener('click', (event) => {
         if (event.target === dialog) {
           close(dialog);
         }
-      });
+      });*/
     });
+  });
+
+  const ajouPhoto = document.querySelector('.ajouPhoto');
+  const section1 = document.querySelector('.section1');
+  const section2 = document.querySelector('.section2');
+  const previous = document.querySelector('.previous');
+  const resetModal = document.querySelector('.resetModal');
+
+  ajouPhoto.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    section1.style.display='none'
+    section2.style.display='block'
+  });
+
+  previous.addEventListener('click', (event) => {
+    console.log("coucou")
+
+    section1.style.display='block'
+    section2.style.display='none'
+
+  });
+
+  resetModal.addEventListener('click', (event) => {
+    console.log("coucou")
+
+    section1.style.display='block'
+    section2.style.display='none'
+
   });
