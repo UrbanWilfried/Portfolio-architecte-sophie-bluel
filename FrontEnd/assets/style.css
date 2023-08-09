@@ -66,6 +66,7 @@ table {
 	vertical-align: text-top;
 }
 .editButton {
+	font-weight: 500;
 	padding: 11px 23px;
 	margin: 10px;
 	background-color: white;
@@ -271,7 +272,7 @@ margin: auto;
 	margin-top: 150px;
 	margin-bottom: 200px;
 }
-input[type="submit"]{
+.buttonSumit{
 	font-family: 'Syne';
 	font-weight: 700;
 	color: white;
@@ -299,24 +300,28 @@ footer nav ul {
  }
 
  .c-dialog {
-	/*position: fixed;*/
+	width: 630px;
+	height: 731px;
+	border: none;
+	border-radius: 10px;
 	z-index: 100;
 	top: 0;
 	right: 0;
 	bottom: 0;
 	left: 0;
 	display: flex;
-	padding: 2.4rem;
+	/*padding: 2.4rem;
 	overflow-y: scroll;
 	-webkit-overflow-scrolling: touch;
-	background-color: rgba(black, .75);
+	background-color: rgba(black, .75);*/
 	transition: .2s;
   }
   .c-dialog__box {
-	flex: 1;
+	width: 630px;
+	/*flex: 1;
 	max-width: 48rem;
 	margin: auto;
-	padding: 2.4rem;
+	padding: 2.4rem;*/
 	background-color: white;
   }
   .c-dialog[aria-hidden="true"] {
@@ -325,4 +330,97 @@ footer nav ul {
   }
   .section2 {
 	display: none;
+  }
+  .exitModal {
+	font-size: 24px;
+	background-color: white;
+	margin: 10px;
+	border: none;
+	float: right;
+  }
+  .previous {
+	font-size: 21px;
+	background-color: white;
+	margin: 10px;
+	border: none;
+	float: left;
+  }
+  dialog h3 {
+	font-size: 26px;
+	margin-top: 60px;
+	text-align: center;
+  }
+  .modifiImg {
+	height: 500px;
+  }
+  .trait {
+	width: 420px;
+	border: 1px solid #B3B3B3;
+	margin: auto;
+  }
+  .ajouPhoto {
+	display: flex;
+	justify-content: center;
+	padding: 0 28px 0 28px;
+	height: 36px;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  }
+  .validImg {
+	background-color: #A7A7A7;
+	display: flex;
+	justify-content: center;
+	padding: 0 28px 0 28px;
+	height: 36px;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  }
+  .deleteAllImg {
+	color: #D65353;
+	font-family: 'Syne';
+	background-color: white;
+	border: none;
+	width: 630px;
+	display: flex;
+	justify-content: center;
+	
+  }
+
+  .framAddPhoto {
+	width: 420px;
+	height: 129px;
+	margin: 40px auto 0;
+	padding: 30px 0;
+	background-color: #E8F1F6;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+  }
+  .importImg {
+	color: #306685;
+	background-color: #CBD6DC;
+	border: none;
+	height: 36px;
+	margin: 0;
+  }
+  .logoAddPhoto {
+	font-size: 58px;
+  }
+  .framAddPhoto p {
+	font-size: 10px;
+	color: #444444;
+  }
+  .formAddImg {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 420px;
+	height: 180px;
+	margin: 20px auto;
+  }
+  .formAddImg input, .formAddImg select {
+	height: 51px;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
   }
