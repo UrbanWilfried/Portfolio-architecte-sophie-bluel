@@ -14,12 +14,12 @@ loginForm.addEventListener("submit", async (e) => {
   console.log(emailValue, passwordValue)
   if (emailValue && passwordValue) {
       const response = await login(emailValue, passwordValue)
-      console.log("cototo", response)
+      console.log("login", response)
       if (response.token){
         localStorage.setItem("token", response.token)
         redirectionHomePage()
       } else{
-        loginError.classList.add('toto')
+        loginError.classList.add('errorLog')
         console.log("tyuio", error)
       }
   }

@@ -42,22 +42,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const previous = document.querySelector('.previous');
   const resetModal = document.querySelector('.resetModal');
 
-  ajouPhoto.addEventListener('click', (event) => {
+  ajouPhoto.addEventListener('click', () => {
     section1.style.display='none'
     section2.style.display='block'
   });
 
-  previous.addEventListener('click', (event) => {
+  previous.addEventListener('click', () => {
     section1.style.display='block'
     section2.style.display='none'
   });
 
-  resetModal.addEventListener('click', (event) => {
+  resetModal.addEventListener('click', () => {
     section1.style.display='block'
     section2.style.display='none'
   });
 
 const logout = document.querySelector('.editButton');
-  logout.addEventListener('click', (event) => {
+  logout.addEventListener('click', () => {
     localStorage.removeItem("token")
+    location.reload()
+    console.log('exit')
   });

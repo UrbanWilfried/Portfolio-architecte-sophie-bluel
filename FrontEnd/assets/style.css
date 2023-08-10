@@ -52,6 +52,7 @@ table {
 	background-color: black;
 	display: none;
 	justify-content: center;
+	margin-top: 0;
 }
 .editP {
 	display: flex;
@@ -87,6 +88,7 @@ table {
 	position: relative;
 }
 .editProject {
+	background-color: white;
 	display: none;
 	position: absolute;
 	border: none;
@@ -295,7 +297,7 @@ footer nav ul {
 	display: none;
  }
 
- #contact .error.toto{
+ #contact .error.errorLog{
 	display: block;
  }
 
