@@ -10,7 +10,6 @@
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
 	<script src="assets/script.js" type="module" defer></script>
-	<script src="assets/modal.js" defer></script>
 </head>
 <body class="js-page">
 	<section class="bannerEdit">
@@ -46,7 +45,6 @@
 					<p>modifier</p>
 				</div>
 			</figure>
-			
 			<article>
 				<h2>Designer d'espace</h2>
 				<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison finale du chantier.</p>
@@ -95,7 +93,6 @@
 				<input type="submit" value="Envoyer" class="buttonSumit">
 			</form>
 		</section>
-		
 	</main>
 	<footer>
 		<nav>
@@ -112,11 +109,9 @@
 				</svg>
 			</button>
 			<h3>Galerie photo</h3>
-			<div class="modifiImg"></div>
+			<div class="gallery-modal"></div>
 			<div class="trait"></div>
-			
 			<input type="submit" value="Ajouter une photo" class="buttonSumit ajouPhoto">
-			
 			<button type="button" class="deleteAllImg">Supprimer la galerie</button>
 		</div>
 		<div role="document" class="c-dialog__box section2">
@@ -136,14 +131,14 @@
 					<svg class="logoAddPhoto" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
 						<path d="M448 80c8.8 0 16 7.2 16 16V415.8l-5-6.5-136-176c-4.5-5.9-11.6-9.3-19-9.3s-14.4 3.4-19 9.3L202 340.7l-30.5-42.7C167 291.7 159.8 288 152 288s-15 3.7-19.5 10.1l-80 112L48 416.3l0-.3V96c0-8.8 7.2-16 16-16H448zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm80 192a48 48 0 1 0 0-96 48 48 0 1 0 0 96z" fill="#CBD6DC"/>
 					</svg>
-					<input class="buttonSumit importImg" type="submit" value="+ Ajouter photo">
+					<label for="imgLaod" class="buttonSumit importImg">+ Ajouter photo</label>
+					<input class="buttonSumitNone" type="file" id="imgLaod">
 					<p>jpg.png : 4mo max</p>
 				</div>
-				<div class="formAddImg">
+				<div class="formAddImg" id="formAddImg">
 					<label for="titre">Titre</label>
 					<input type="text" name="titre" id="titre">
 					<label for="categorie">Catégorie</label>
-					
 					<select name="categorie" id="categorie">
 						<option value=""></option>
 						<option value="objets">Objet</option>
@@ -152,7 +147,7 @@
 					</select>
 				</div>
 				<div class="trait"></div>
-				<input type="submit" value="Valider" class="buttonSumit validImg">
+				<input type="submit" value="Valider" class="buttonSumit validImg" id="validImg"> disabled
 			</form>
 		</div>
 	</dialog>

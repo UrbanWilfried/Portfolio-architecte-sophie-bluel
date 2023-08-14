@@ -35,4 +35,12 @@ const login = async (email, password) => {
   })
   return response.json()
 }
-
+img.addEventListener("input", toggleSubmitButton);
+category.addEventListener("input", toggleSubmitButton);
+function toggleSubmitButton() {
+  if (usernameInput.value && passwordInput.value) {
+    validImg.disabled = false;
+  } else {
+    validImg.disabled = true;
+  }
+}
