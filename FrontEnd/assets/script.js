@@ -2,32 +2,46 @@ import createGallery from "./gallery.js";
 import createModal from "./modal.js";
 import createFilters from "./filters.js";
 
-const bannerEdit = document.querySelector('.bannerEdit')
-const editImage = document.querySelector('.editImage')
-const editProject = document.querySelector('.editProject')
-const filterNone = document.querySelector('.filter')
+const bannerEdit = document.querySelector(".bannerEdit");
+const editImage = document.querySelector(".editImage");
+const editProject = document.querySelector(".editProject");
+const filterNone = document.querySelector(".filter");
 const showButton = document.getElementById("showDialog");
 const galleryContainer = document.getElementById("gallery");
 const deleteWorkButton = document.getElementById("delete-work");
+/*const editNone = document.querySelector(".editNone");*/
+const token = localStorage.getItem("token");
 
 const fetchWorks = async () => {
-    const response = await fetch("http://localhost:5678/api/works")
-    return response.json()
+  const response = await fetch("http://localhost:5678/api/works");
+  return response.json();
+};
+
+const deleteWork = async (workId) => {
+  const response = await fetch(`http://localhost:5678/api/works/${workId}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return response.json();
 };
 
 const init = async () => {
-  const token=localStorage.getItem("token")
   if (token) {
-    bannerEdit.style.display='flex'
-    editImage.style.visibility='visible'
-    editProject.style.display='flex'
-    filterNone.style.visibility='hidden'
+    bannerEdit.style.display = "flex";
+    editImage.style.visibility = "visible";
+    editProject.style.display = "flex";
+    filterNone.style.visibility = "hidden";
   }
 
   const worksData = await fetchWorks();
+
   const gallery = createGallery({ works: worksData });
-  galleryContainer.appendChild(gallery.renderGallery());
-  
+
+  galleryContainer.appendChild(gallery.renderGallery()); // Append the rendered gallery to the container
+
   const modalGallery = createGallery({
     works: worksData,
     isEditable: true,
@@ -42,27 +56,22 @@ const init = async () => {
       }
     },
   });
- const modal = createModal({ gallery: modalGallery });
+  const modal = createModal({
+    gallery: modalGallery,
+  });
 
-  /*gallery.renderGallery();*/
-  
   createFilters({
     worksData,
     onSelectFilter: (filteredWorks) => {
       gallery.setGallery(filteredWorks);
-    }
-  });
-};
-
-init()
-
-const deleteWork = async (workId) => {
-  const response = await fetch(`http://localhost:5678/api/works/${workId}`, {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
     },
   });
-  return response.json();
+
+  
+  showButton.addEventListener("click", () => {
+    modal.showModal();
+    
+  });
 };
+
+init();
