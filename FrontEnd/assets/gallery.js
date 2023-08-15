@@ -20,8 +20,10 @@ const createGallery = ({ works = [], isEditable = false, onDeleteWork }) => {
       `;
 
       if (isEditable) {
-        const deleteButton = document.createElement("button");
-        deleteButton.innerText = "Delete";
+        const deleteButton = document.createElement("i");
+        deleteButton.classList.add("delete-work");
+        /*<i class="fa-solid fa-trash-can"></i>*/
+        /*deleteButton.innerText = "trash-can";*/
         /*deleteButton.classList.add("delete-work");*/
 
         deleteButton.addEventListener("click", (e) => {

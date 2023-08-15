@@ -61,8 +61,9 @@ table {
 .editP p {
  margin: 6px 0 0 10px;
 }
-.bannerEdit svg {
-	vertical-align: text-top;
+.bannerEdit i {
+	font-size: 19px;
+	color: white;
 }
 .editButton {
 	font-weight: 500;
@@ -77,6 +78,9 @@ table {
 	margin: 18px 0 0 58px;
 	visibility: hidden;
 }
+.editImage i {
+	font-size: 19px;
+}
 .editImage p {
 	margin: 6px 0 0 10px;
 }
@@ -84,6 +88,9 @@ table {
 	display: flex;
 	justify-content: center;
 	position: relative;
+}
+.editTitre i {
+	font-size: 19px;
 }
 .editProject {
 	background-color: white;
@@ -354,14 +361,12 @@ footer nav ul {
 .section2 {
 	display: none;
 }
-.exitModal {
+.exitModal, .exitModal2 {
 	font-size: 24px;
 	background-color: white;
 	margin: 10px;
 	border: none;
 	float: right;
-	/*position: relative;
-	bottom: 60px;*/
 }
 .previous {
 	font-size: 21px;
@@ -430,8 +435,9 @@ dialog h3 {
 	margin: 0;
 	padding-top: 11px;
 }
-.logoAddPhoto {
+.framAddPhoto i {
 	font-size: 58px;
+	color: #CBD6DC;;
 }
 .framAddPhoto p {
 	font-size: 10px;
@@ -449,4 +455,14 @@ dialog h3 {
 	height: 51px;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+.delete-work {
+	display: block;
+	width: 17px;
+	height: 17px;
+	position: relative;
+	bottom: 112px;
+	left: 52px;
+	color: white;
+	background-color: black;
 }

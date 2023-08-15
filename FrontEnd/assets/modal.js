@@ -1,4 +1,6 @@
 const closeModal = document.querySelector(".exitModal");
+const closeModal2 = document.querySelector(".exitModal2");
+
 const createModal = ({ gallery }) => {
   const dialogElement = document.getElementById("dialog");
   const galleryModalElement = document.querySelector(".gallery-modal");
@@ -23,7 +25,15 @@ const createModal = ({ gallery }) => {
     hideModal();
   });
 
+  closeModal2.addEventListener("click", (event) => {
+    hideModal2();
+  });
+
   const hideModal = () => {
+    dialogElement.close();
+  };
+
+  const hideModal2 = () => {
     dialogElement.close();
   };
 
@@ -59,6 +69,11 @@ previous.addEventListener('click', () => {
 
 closeModal.addEventListener('click', () => {
   section1.style='none'
+});
+
+closeModal2.addEventListener('click', () => {
+  section1.style='none'
+  section2.style.display='none'
 });
 
 /*resetModal.addEventListener('click', () => {
