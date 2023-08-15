@@ -9,8 +9,11 @@ const filterNone = document.querySelector(".filter");
 const showButton = document.getElementById("showDialog");
 const galleryContainer = document.getElementById("gallery");
 const deleteWorkButton = document.getElementById("delete-work");
-/*const editNone = document.querySelector(".editNone");*/
 const token = localStorage.getItem("token");
+const imgLaod = document.getElementById("imgLaod");
+const titre = document.getElementById("titre");
+const categorie = document.getElementById("categorie");
+const validImg = document.querySelector(".validImg");
 
 const fetchWorks = async () => {
   const response = await fetch("http://localhost:5678/api/works");
@@ -35,13 +38,9 @@ const init = async () => {
     editProject.style.display = "flex";
     filterNone.style.visibility = "hidden";
   }
-
   const worksData = await fetchWorks();
-
   const gallery = createGallery({ works: worksData });
-
-  galleryContainer.appendChild(gallery.renderGallery()); // Append the rendered gallery to the container
-
+  galleryContainer.appendChild(gallery.renderGallery());
   const modalGallery = createGallery({
     works: worksData,
     isEditable: true,
@@ -59,19 +58,22 @@ const init = async () => {
   const modal = createModal({
     gallery: modalGallery,
   });
-
   createFilters({
     worksData,
     onSelectFilter: (filteredWorks) => {
       gallery.setGallery(filteredWorks);
     },
   });
-
-  
   showButton.addEventListener("click", () => {
     modal.showModal();
     
   });
 };
-
 init();
+
+validImg.addEventListener("input", validFormImg);
+function validFormImg() {
+  if (imgLaod.value && titre.value && categorie.value) {
+    validImg.classList.remove("disabled");
+  }
+};

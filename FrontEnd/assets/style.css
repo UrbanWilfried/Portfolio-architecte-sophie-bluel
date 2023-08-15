@@ -232,13 +232,6 @@ li a:hover {
 	grid-column-gap: 20px;
 	grid-row-gap: 20px;
 }
-/*.gallery {
-	width: 100%;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-column-gap: 20px;
-	grid-row-gap: 20px;
-}*/
 .gallery-modal div {
 	width: 420px;
 	display: grid;
@@ -327,34 +320,14 @@ footer nav ul {
 	display: block;
 }
 .c-dialog {
-	/*width: 630px;
-	height: 731px;*/
 	border: none;
 	border-radius: 10px;
-	/*z-index: 100;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;*/
 	display: flex;
-	/*padding: 2.4rem;
-	overflow-y: scroll;
-	-webkit-overflow-scrolling: touch;
-	background-color: rgba(black, .75);
-	transition: .2s;*/
 }
 .c-dialog__box {
 	width: 630px;
-	/*flex: 1;
-	max-width: 48rem;
-	margin: auto;
-	padding: 2.4rem;*/
 	background-color: white;
 }
-/*.c-dialog[aria-hidden="true"] {
-	visibility: hidden;
-	opacity: 0;
-}*/
 .section1 {
 	display: none;
 }
@@ -397,13 +370,15 @@ dialog h3 {
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 .validImg {
-	background-color: #A7A7A7;
 	display: flex;
 	justify-content: center;
 	padding: 0 28px 0 28px;
 	height: 36px;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+.disabled {
+	background-color: #A7A7A7;
 }
 .deleteAllImg {
 	color: #D65353;
@@ -457,12 +432,14 @@ dialog h3 {
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 .delete-work {
-	display: block;
-	width: 17px;
-	height: 17px;
+	width: 13px;
+	height: 14px;
 	position: relative;
 	bottom: 112px;
-	left: 52px;
+	left: 54px;
+	font-size: 10px;
 	color: white;
 	background-color: black;
+	padding: 3px 0 0 4px;
+	border-radius: 2px;
 }

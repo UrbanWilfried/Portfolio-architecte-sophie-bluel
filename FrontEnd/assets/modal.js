@@ -51,7 +51,6 @@ const section1 = document.querySelector('.section1');
 const section2 = document.querySelector('.section2');
 const previous = document.querySelector('.previous');
 const showDialog = document.querySelector('#showDialog');
-/*const resetModal = document.querySelector('.resetModal');*/
 
 showDialog.addEventListener('click', () => {
   section1.style.display='block'
@@ -75,11 +74,6 @@ closeModal2.addEventListener('click', () => {
   section1.style='none'
   section2.style.display='none'
 });
-
-/*resetModal.addEventListener('click', () => {
-  section1.style.display='block'
-  section2.style.display='none'
-});*/
 
 const logout = document.querySelector('.editButton');
   logout.addEventListener('click', () => {

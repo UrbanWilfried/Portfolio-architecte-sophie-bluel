@@ -9,7 +9,7 @@ const createGallery = ({ works = [], isEditable = false, onDeleteWork }) => {
   };
 
   const renderGallery = () => {
-    galleryElement.innerHTML = ""; // Efface le contenu précédent
+    galleryElement.innerHTML = "";
 
     galleryWorks.forEach((work) => {
       const figure = document.createElement("figure");
@@ -22,9 +22,8 @@ const createGallery = ({ works = [], isEditable = false, onDeleteWork }) => {
       if (isEditable) {
         const deleteButton = document.createElement("i");
         deleteButton.classList.add("delete-work");
-        /*<i class="fa-solid fa-trash-can"></i>*/
-        /*deleteButton.innerText = "trash-can";*/
-        /*deleteButton.classList.add("delete-work");*/
+        deleteButton.classList.add("fa-solid");
+        deleteButton.classList.add("fa-trash-can");
 
         deleteButton.addEventListener("click", (e) => {
           e.preventDefault();
