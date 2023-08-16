@@ -41,6 +41,7 @@ const createGallery = ({ works = [], isEditable = false, onDeleteWork }) => {
   const removeWork = (workId) => {
     const updatedWorks = galleryWorks.filter((work) => work.id !== workId);
     onDeleteWork(updatedWorks);
+    onDeleteWork(workId);
   };
   
   return {

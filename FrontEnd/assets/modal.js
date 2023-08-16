@@ -61,9 +61,17 @@ ajouPhoto.addEventListener('click', () => {
   section2.style.display='block'
 });
 
+function resetForm() {
+  document.getElementById("imgLaod").value="";
+  document.getElementById("titre").value="";
+  document.getElementById("categorie").value="";
+  console.log("ici")
+}
+
 previous.addEventListener('click', () => {
   section1.style.display='block'
   section2.style.display='none'
+  resetForm();
 });
 
 closeModal.addEventListener('click', () => {
@@ -73,6 +81,7 @@ closeModal.addEventListener('click', () => {
 closeModal2.addEventListener('click', () => {
   section1.style='none'
   section2.style.display='none'
+  resetForm()
 });
 
 const logout = document.querySelector('.editButton');
