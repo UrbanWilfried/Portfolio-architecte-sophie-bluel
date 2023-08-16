@@ -30,6 +30,11 @@ const deleteWork = async (workId) => {
   });
   return response.json();
 };
+/* ici ça marche pas */
+/*deleteWorkButton.addEventListener("click", (event) => {
+  deleteWork();
+  console.log("delete img")
+});*/
 
 const init = async () => {
   if (token) {
@@ -70,10 +75,11 @@ const init = async () => {
   });
 };
 init();
-
+/* ici ça marche pas */
 validImg.addEventListener("input", validFormImg);
 function validFormImg() {
   if (imgLaod.value && titre.value && categorie.value) {
-    validImg.classList.remove("disabled");
+    validImg.removeAttribute("disabled");
+    validImg.classList.add("disabled");
   }
 };
