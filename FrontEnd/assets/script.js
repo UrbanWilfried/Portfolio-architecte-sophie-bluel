@@ -35,7 +35,7 @@ const deleteWork = async (workId) => {
   deleteWork();
   console.log("delete img")
 });*/
-
+/*fin*/
 const init = async () => {
   if (token) {
     bannerEdit.style.display = "flex";
@@ -75,7 +75,46 @@ const init = async () => {
   });
 };
 init();
-/* ici ça marche pas */
+
+const framAddPhotoI = document.querySelector(".framAddPhoto i")
+const toto = document.querySelector(".toto")
+      
+function createThumbnail(sFile,sId) {
+  var oReader = new FileReader();
+  oReader.addEventListener('load', function() {
+    var oImgElement = document.createElement('img');
+    oImgElement.classList.add('imgPreview') 
+    oImgElement.src = this.result;
+    document.getElementById('preview-'+sId).appendChild(oImgElement);
+  }, false);
+  framAddPhotoI.style.display='none'
+  oReader.readAsDataURL(sFile);
+}
+
+function changeInputFil(oEvent){
+  var oInputFile = oEvent.currentTarget,
+      sName = oInputFile.name,
+      aFiles = oInputFile.files,
+      aAllowedTypes = ['png', 'jpg'],
+      imgType;  
+  document.getElementById('preview-'+sName).innerHTML ='';
+  for (var i = 0 ; i < aFiles.length ; i++) {
+    imgType = aFiles[i].name.split('.');
+    imgType = imgType[imgType.length - 1];
+    if(aAllowedTypes.indexOf(imgType) != -1) {
+      createThumbnail(aFiles[i],sName);
+    }
+  }
+  document.getElementById('preview-').innerHTML ='';
+}
+
+document.addEventListener('DOMContentLoaded',function(){
+ var aFileInput = document.forms['myForm'].querySelectorAll('[type=file]');
+  for(var k = 0; k < aFileInput.length;k++){
+    aFileInput[k].addEventListener('change', changeInputFil, false);
+  }
+});
+
 validImg.addEventListener("input", validFormImg);
 function validFormImg() {
   if (imgLaod.value && titre.value && categorie.value) {
@@ -83,3 +122,8 @@ function validFormImg() {
     validImg.classList.add("disabled");
   }
 };
+
+const formData = new FormData();
+formData.append("imgLaod");
+formData.append("titre");
+formData.append("categorie");

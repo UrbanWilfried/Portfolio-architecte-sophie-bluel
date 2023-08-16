@@ -393,7 +393,6 @@ dialog h3 {
 }
 .framAddPhoto {
 	width: 420px;
-	height: 129px;
 	margin: 40px auto 0;
 	padding: 30px 0;
 	background-color: #E8F1F6;
@@ -407,12 +406,13 @@ dialog h3 {
 	background-color: #CBD6DC;
 	border: none;
 	height: 25px;
-	margin: 0;
+	margin: 18px 0 10px;
 	padding-top: 11px;
 }
 .framAddPhoto i {
 	font-size: 58px;
-	color: #CBD6DC;;
+	color: #CBD6DC;
+	display: block;
 }
 .framAddPhoto p {
 	font-size: 10px;
@@ -443,3 +443,7 @@ dialog h3 {
 	padding: 3px 0 0 4px;
 	border-radius: 2px;
 }
+.imgPreview{
+	max-width:300px;
+	 max-height:300px;
+  }

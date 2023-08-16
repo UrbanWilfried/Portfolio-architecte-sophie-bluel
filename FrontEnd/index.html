@@ -112,12 +112,13 @@
 				<i class="fa-solid fa-xmark"></i>
 			</button>
 			<h3>Ajout photo</h3>
-			<form>
+			<form name="myForm" method="post" enctype="multipart/form-data">
 				<div class="framAddPhoto">
 					<i class="fa-regular fa-image"></i>
+					<div id="preview-file"></div>
 					<label for="imgLaod" class="buttonSumit importImg">+ Ajouter photo</label>
-					<input class="buttonSumitNone" type="file" id="imgLaod">
-					<p>jpg.png : 4mo max</p>
+					<input class="buttonSumitNone" type="file" name="file" multiple accept=".jpg, .png" id="imgLaod">
+					<p>jpg, png : 4mo max</p>
 				</div>
 				<div class="formAddImg" id="formAddImg">
 					<label for="titre">Titre</label>
