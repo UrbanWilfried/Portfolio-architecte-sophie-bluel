@@ -8,12 +8,7 @@ const editProject = document.querySelector(".editProject");
 const filterNone = document.querySelector(".filter");
 const showButton = document.getElementById("showDialog");
 const galleryContainer = document.getElementById("gallery");
-const deleteWorkButton = document.getElementById("delete-work");
 const token = localStorage.getItem("token");
-const imgLaod = document.getElementById("imgLaod");
-const titre = document.getElementById("titre");
-const categorie = document.getElementById("categorie");
-const validImg = document.querySelector(".validImg");
 
 const fetchWorks = async () => {
   const response = await fetch("http://localhost:5678/api/works");
@@ -30,12 +25,20 @@ const deleteWork = async (workId) => {
   });
   return response.json();
 };
-/* ici ça marche pas */
-/*deleteWorkButton.addEventListener("click", (event) => {
-  deleteWork();
-  console.log("delete img")
-});*/
-/*fin*/
+
+const addWork = async (formData) => {
+  const response = await fetch(`http://localhost:5678/api/works`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    body: formData,
+  });
+  return response.json();
+};
+
+
+
 const init = async () => {
   if (token) {
     bannerEdit.style.display = "flex";
@@ -62,6 +65,14 @@ const init = async () => {
   });
   const modal = createModal({
     gallery: modalGallery,
+    onSave: async (formData) => {
+      console.log("save", formData);
+      try {
+        await addWork(formData);
+      } catch (e) {
+        console.log(e);
+      }
+    },
   });
   createFilters({
     worksData,
@@ -76,54 +87,21 @@ const init = async () => {
 };
 init();
 
-const framAddPhotoI = document.querySelector(".framAddPhoto i")
-const toto = document.querySelector(".toto")
-      
-function createThumbnail(sFile,sId) {
-  var oReader = new FileReader();
-  oReader.addEventListener('load', function() {
-    var oImgElement = document.createElement('img');
-    oImgElement.classList.add('imgPreview') 
-    oImgElement.src = this.result;
-    document.getElementById('preview-'+sId).appendChild(oImgElement);
-  }, false);
-  framAddPhotoI.style.display='none'
-  oReader.readAsDataURL(sFile);
-}
 
-function changeInputFil(oEvent){
-  var oInputFile = oEvent.currentTarget,
-      sName = oInputFile.name,
-      aFiles = oInputFile.files,
-      aAllowedTypes = ['png', 'jpg'],
-      imgType;  
-  document.getElementById('preview-'+sName).innerHTML ='';
-  for (var i = 0 ; i < aFiles.length ; i++) {
-    imgType = aFiles[i].name.split('.');
-    imgType = imgType[imgType.length - 1];
-    if(aAllowedTypes.indexOf(imgType) != -1) {
-      createThumbnail(aFiles[i],sName);
-    }
-  }
-  document.getElementById('preview-').innerHTML ='';
-}
+/*
+const deleteWorkButton = document.getElementById("delete-work");
+const imgLaod = document.getElementById("imgLaod");
+const titre = document.getElementById("titre");
+const categorie = document.getElementById("categorie");
+const validImg = document.querySelector(".validImg");
 
-document.addEventListener('DOMContentLoaded',function(){
- var aFileInput = document.forms['myForm'].querySelectorAll('[type=file]');
-  for(var k = 0; k < aFileInput.length;k++){
-    aFileInput[k].addEventListener('change', changeInputFil, false);
-  }
+deleteWorkButton.addEventListener("click", (event) => {
+  deleteWork();
+  console.log("delete img")
 });
-
-validImg.addEventListener("input", validFormImg);
-function validFormImg() {
-  if (imgLaod.value && titre.value && categorie.value) {
-    validImg.removeAttribute("disabled");
-    validImg.classList.add("disabled");
-  }
-};
 
 const formData = new FormData();
 formData.append("imgLaod");
 formData.append("titre");
 formData.append("categorie");
+*/

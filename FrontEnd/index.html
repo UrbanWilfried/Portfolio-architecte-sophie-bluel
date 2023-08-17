@@ -112,7 +112,7 @@
 				<i class="fa-solid fa-xmark"></i>
 			</button>
 			<h3>Ajout photo</h3>
-			<form name="myForm" method="post" enctype="multipart/form-data" id="myForm">
+			<form name="myForm" method="post" enctype="multipart/form-data" id="addWorkForm">
 				<div class="framAddPhoto">
 					<i class="fa-regular fa-image"></i>
 					<div id="preview-file"></div>
@@ -123,16 +123,16 @@
 				<div class="formAddImg" id="formAddImg">
 					<label for="titre">Titre</label>
 					<input type="text" name="titre" id="titre">
-					<label for="categorie">Catégorie</label>
-					<select name="categorie" id="categorie">
+					<label for="category">Catégorie</label>
+					<select name="category" id="category">
 						<option value=""></option>
-						<option value="objets">Objet</option>
-						<option value="appartements">Appartements</option>
-						<option value="hotels & restorants">Hôtels & restaurants</option>
+						<option value="1">Objet</option>
+						<option value="2">Appartements</option>
+						<option value="3">Hôtels & restaurants</option>
 					</select>
 				</div>
 				<div class="trait"></div>
-				<input type="submit" value="Valider" class="buttonSumit validImg disabled" id="validImg" disabled>
+				<input type="submit" value="Valider" class="buttonSumit validImg disabled" id="validImg" ><!--disabled-->
 			</form>
 		</div>
 	</dialog>
