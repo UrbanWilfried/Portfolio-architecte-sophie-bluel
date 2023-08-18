@@ -24,6 +24,8 @@ previous.addEventListener('click', () => {
   importImg.style.display='block'
   framAddPhotoP.style.display='block'
   previewFile.style.display='none'
+  disabled.classList.add("disabledColor")
+  disabled.getAttribute("disabled")
   resetForm();
 });
 
@@ -38,6 +40,8 @@ closeModal2.addEventListener('click', () => {
   importImg.style.display='block'
   framAddPhotoP.style.display='block'
   previewFile.style.display='none'
+  disabled.classList.add("disabledColor")
+  disabled.getAttribute("disabled")
   resetForm()
 });
 
@@ -171,6 +175,20 @@ function resetForm() {
   document.getElementById("category").value="";
 }
 
+
+const disabled = document.getElementById("validImg");
+
+/*function disableDisabled() {
+  if (imageUrl.value && title.value && name.value) {
+    disabled.classList.remove("disabledColor")
+    disabled.removeAttribute("disabled")
+  }
+};*/
+
+imgLaod.addEventListener("click", () => {
+  disabled.classList.remove("disabledColor")
+  disabled.removeAttribute("disabled")
+});
 
 /*
 const titre = document.getElementById("titre");

@@ -254,6 +254,8 @@ li a:hover {
 }
 .gallery-modal img {
 	width: 76px;
+	height: 102px;
+	object-fit: cover;
 }
 #contact {
 	width: 50%;
@@ -377,7 +379,7 @@ dialog h3 {
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
-.disabled {
+.disabledColor {
 	background-color: #A7A7A7;
 }
 .deleteAllImg {
