@@ -37,7 +37,14 @@ const addWork = async (formData) => {
   return response.json();
 };
 
+/*fetch categorie début*/
 
+const fetchCategories = async () => {
+  const response = await fetch("http://localhost:5678/api/categories");
+  return response.json();
+};
+
+/*fetch categorie fin*/
 
 const init = async () => {
   if (token) {
@@ -63,6 +70,7 @@ const init = async () => {
       }
     },
   });
+
   const modal = createModal({
     gallery: modalGallery,
     onSave: async (formData) => {
@@ -74,6 +82,31 @@ const init = async () => {
       }
     },
   });
+
+/*fetch categorie début*/
+
+  const categoriesData = await fetchCategories();
+  const filters = createFilters({ works: categoriesData });
+  filtersContainer.appendChild(filters.renderFilters());
+  const modalFilters = createFilters({
+    categories: categoriesData,
+    isEditable: true,
+  });
+
+  const modal2 = createModal({
+    gallery: modalFilters,
+    onSave: async (formData) => {
+      console.log("save", formData);
+      try {
+        await addWork(formData);
+      } catch (e) {
+        console.log(e);
+      }
+    },
+  });
+  
+/*fetch categorie fin*/
+
   createFilters({
     worksData,
     onSelectFilter: (filteredWorks) => {
@@ -88,20 +121,4 @@ const init = async () => {
 init();
 
 
-/*
-const deleteWorkButton = document.getElementById("delete-work");
-const imgLaod = document.getElementById("imgLaod");
-const titre = document.getElementById("titre");
-const categorie = document.getElementById("categorie");
-const validImg = document.querySelector(".validImg");
 
-deleteWorkButton.addEventListener("click", (event) => {
-  deleteWork();
-  console.log("delete img")
-});
-
-const formData = new FormData();
-formData.append("imgLaod");
-formData.append("titre");
-formData.append("categorie");
-*/

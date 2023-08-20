@@ -1,4 +1,32 @@
+/*fetch categorie début*/
+
 const createFilters = ({ worksData, onSelectFilter }) => {
+
+  let filtersWorks = [...categories];
+
+  const setFilters = (newCategories) => {
+    filtersWorks = [...newCategories];
+    renderFilters();
+  };
+
+  const renderFilters = () => {
+    FiltersElement.innerHTML = "";
+
+    filtersWorks.forEach((work) => {
+      const divFilter = document.createElement("div");
+      divFilter.classList.add("filter-button")
+      divFilter.innerHTML = `
+        <p>${cayegories.name}</p>
+      `;
+
+      FiltersElement.appendChild(figure);
+    });
+
+    return FiltersElement;
+  };
+
+/*fetch categorie fin*/
+
   const filters = document.querySelectorAll(".filter-button");
   filters.forEach((filter) => {
     filter.addEventListener("click", () => {
@@ -9,7 +37,16 @@ const createFilters = ({ worksData, onSelectFilter }) => {
       onSelectFilter(filteredWorks);
     });
   });
-  return {};
+
+  return {
+
+/*fetch categorie début*/
+
+    setFilters,
+    renderFilters,
+  };
 };
   
 export default createFilters;
+
+/*fetch categorie fin*/
