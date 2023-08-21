@@ -1,6 +1,5 @@
 const createGallery = ({ works = [], isEditable = false, onDeleteWork }) => {
   const galleryElement = document.createElement("div");
-
   let galleryWorks = [...works];
 
   const setGallery = (newWorks) => {

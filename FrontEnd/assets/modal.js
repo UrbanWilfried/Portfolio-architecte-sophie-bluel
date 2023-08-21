@@ -26,6 +26,7 @@ previous.addEventListener('click', () => {
   previewFile.style.display='none'
   disabled.classList.add("disabledColor")
   disabled.getAttribute("disabled")
+  loadError.classList.remove('errorLoad')
   resetForm();
 });
 
@@ -42,6 +43,7 @@ closeModal2.addEventListener('click', () => {
   previewFile.style.display='none'
   disabled.classList.add("disabledColor")
   disabled.getAttribute("disabled")
+  loadError.classList.remove('errorLoad')
   resetForm()
 });
 
@@ -79,7 +81,6 @@ const createModal = ({ gallery, onSave }) => {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const formData = handleFormSubmit();
-
     onSave(formData);
   });
 
@@ -128,7 +129,6 @@ const logout = document.querySelector('.editButton');
 logout.addEventListener('click', () => {
   localStorage.removeItem("token")
   location.reload()
-  console.log('exit')
 });
 
 const framAddPhotoI = document.querySelector(".framAddPhoto i")
@@ -180,13 +180,11 @@ document.addEventListener('DOMContentLoaded',function(){
 function resetForm() {
   document.getElementById("preview-file").value="";
   document.getElementById("imgLaod").value="";
-  document.getElementById("titre").value="";
+  document.getElementById("title").value="";
   document.getElementById("category").value="";
 }
 
-
 const disabled = document.getElementById("validImg");
-
 
 imgLaod.addEventListener("click", () => {
   disabled.classList.remove("disabledColor")

@@ -11,7 +11,6 @@ loginForm.addEventListener("submit", async (e) => {
   const emailValue = document.getElementById("email").value;
   const passwordValue = document.getElementById("password").value;
   
-  console.log(emailValue, passwordValue)
   if (emailValue && passwordValue) {
     const response = await login(emailValue, passwordValue)
     if (response.token){
@@ -22,6 +21,7 @@ loginForm.addEventListener("submit", async (e) => {
     }
   }
 });
+
 const login = async (email, password) => {
   const response = await fetch('http://localhost:5678/api/users/login', {
     method: 'POST',
@@ -33,8 +33,10 @@ const login = async (email, password) => {
   })
   return response.json()
 }
+
 img.addEventListener("input", toggleSubmitButton);
 category.addEventListener("input", toggleSubmitButton);
+
 function toggleSubmitButton() {
   if (usernameInput.value && passwordInput.value) {
     validImg.disabled = false;
