@@ -1,52 +1,37 @@
-/*fetch categorie début*/
-
-const createFilters = ({ worksData, onSelectFilter }) => {
-
-  let filtersWorks = [...categories];
-
-  const setFilters = (newCategories) => {
-    filtersWorks = [...newCategories];
-    renderFilters();
-  };
+const createFilters = ({ onSelectFilter, categories }) => {
+  const filtersElement = document.createElement("div");
+  filtersElement.classList.add("filter");
 
   const renderFilters = () => {
-    FiltersElement.innerHTML = "";
+    filtersElement.innerHTML = "";
 
-    filtersWorks.forEach((work) => {
-      const divFilter = document.createElement("div");
-      divFilter.classList.add("filter-button")
-      divFilter.innerHTML = `
-        <p>${cayegories.name}</p>
-      `;
+    const createFilterButton = (categoryId, categoryName) => {
+      const button = document.createElement("div");
+      button.id = categoryId;
+      button.classList.add("filter-button");
+      button.innerHTML = `<p>${categoryName}</p>`;
 
-      FiltersElement.appendChild(figure);
+      button.addEventListener("click", () => {
+        onSelectFilter(categoryId);
+      });
+
+      return button;
+    };
+
+    const buttonAll = createFilterButton("all", "All");
+    filtersElement.appendChild(buttonAll);
+
+    categories.forEach((category) => {
+      const button = createFilterButton(category.name, category.name);
+      filtersElement.appendChild(button);
     });
 
-    return FiltersElement;
+    return filtersElement;
   };
 
-/*fetch categorie fin*/
-
-  const filters = document.querySelectorAll(".filter-button");
-  filters.forEach((filter) => {
-    filter.addEventListener("click", () => {
-      const filterName = filter.getAttribute("data-id");
-      const filteredWorks = worksData.filter((work) =>
-        filterName === "All" ? work : work.category.name === filterName
-      );
-      onSelectFilter(filteredWorks);
-    });
-  });
-
   return {
-
-/*fetch categorie début*/
-
-    setFilters,
     renderFilters,
   };
 };
-  
-export default createFilters;
 
-/*fetch categorie fin*/
+export default createFilters;

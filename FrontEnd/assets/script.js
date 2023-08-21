@@ -9,6 +9,7 @@ const filterNone = document.querySelector(".filter");
 const showButton = document.getElementById("showDialog");
 const galleryContainer = document.getElementById("gallery");
 const token = localStorage.getItem("token");
+const filtersContainer = document.querySelector(".filter");
 
 const fetchWorks = async () => {
   const response = await fetch("http://localhost:5678/api/works");
@@ -37,14 +38,11 @@ const addWork = async (formData) => {
   return response.json();
 };
 
-/*fetch categorie début*/
-
 const fetchCategories = async () => {
   const response = await fetch("http://localhost:5678/api/categories");
   return response.json();
 };
 
-/*fetch categorie fin*/
 
 const init = async () => {
   if (token) {
@@ -83,42 +81,43 @@ const init = async () => {
     },
   });
 
-/*fetch categorie début*/
 
-  const categoriesData = await fetchCategories();
-  const filters = createFilters({ works: categoriesData });
-  filtersContainer.appendChild(filters.renderFilters());
-  const modalFilters = createFilters({
-    categories: categoriesData,
-    isEditable: true,
-  });
+  const categories = await fetchCategories();
 
-  const modal2 = createModal({
-    gallery: modalFilters,
-    onSave: async (formData) => {
-      console.log("save", formData);
-      try {
-        await addWork(formData);
-      } catch (e) {
-        console.log(e);
-      }
-    },
-  });
-  
-/*fetch categorie fin*/
 
-  createFilters({
-    worksData,
-    onSelectFilter: (filteredWorks) => {
-      gallery.setGallery(filteredWorks);
-    },
-  });
+const filters = createFilters({
+  onSelectFilter: (category) => {
+    const filteredWorks = worksData.filter((work) =>
+      category === "all" ? work : work.category.name === category
+    );
+
+    gallery.setGallery(filteredWorks);
+  },
+  categories,
+});
+filtersContainer.appendChild(filters.renderFilters());
+
+const selectElement = document.createElement("select");
+selectElement.name = "category";
+selectElement.id = "category";
+
+const defaultOption = document.createElement("option");
+defaultOption.value = "";
+selectElement.appendChild(defaultOption);
+
+categories.forEach((category) => {
+  const option = document.createElement("option");
+  option.value = category.id;
+  option.textContent = category.name;
+  selectElement.appendChild(option);
+});
+
+const container = document.getElementById("select");
+container.appendChild(selectElement);
+
   showButton.addEventListener("click", () => {
     modal.showModal();
     
   });
 };
 init();
-
-
-

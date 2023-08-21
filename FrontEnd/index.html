@@ -56,18 +56,6 @@
 				</button>
 			</div>
 			<div class="filter">
-				<div class="filter-button" data-id="All">
-					<p>Tous</p>
-				</div>
-				<!--<div class="filter-button" data-id="Objets">
-					<p>Objet</p>
-				</div>
-				<div class="filter-button" data-id="Appartements">
-					<p>Appartements</p>
-				</div>
-				<div class="filter-button" data-id="Hotels & restaurants">
-					<p>Hôtels&restaurants</p>
-				</div>-->
 			</div>
 			<div class="gallery" id="gallery">
 			</div>
@@ -124,15 +112,11 @@
 					<label for="titre">Titre</label>
 					<input type="text" name="titre" id="titre">
 					<label for="category">Catégorie</label>
-					<select name="category" id="category">
-						<option value=""></option>
-						<option value="1">Objet</option>
-						<option value="2">Appartements</option>
-						<option value="3">Hôtels & restaurants</option>
-					</select>
+					<div id="select"></div>
 				</div>
 				<div class="trait"></div>
-				<input type="submit" value="Valider" class="buttonSumit validImg disabledColor" id="validImg" disabled>
+				<div class="load">veuillez remplir tous les champs</div>
+				<input type="submit" value="Valider" class="buttonSumit validImg disabledColor" id="validImg">
 			</form>
 		</div>
 	</dialog>

@@ -351,6 +351,15 @@ dialog h3 {
 	border: 1px solid #B3B3B3;
 	margin: auto;
 }
+.load {
+	color: #D8000C;
+	background-color: #FFBABA;
+	text-align: center;
+	display: none;
+}
+.errorLoad {
+	display: block;
+}
 .ajouPhoto {
 	display: flex;
 	justify-content: center;
@@ -420,6 +429,9 @@ dialog h3 {
 	height: 51px;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+#category {
+	width: 100%;
 }
 .delete-work {
 	width: 13px;

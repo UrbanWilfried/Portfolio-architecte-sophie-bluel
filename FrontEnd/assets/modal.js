@@ -50,11 +50,19 @@ imgLaod.addEventListener('click', () => {
 });
 
 const form = document.getElementById("addWorkForm");
+const loadError = document.querySelector(".load");
 
 const handleFormSubmit = () => {
   const image = form.querySelector("input[type='file']").files[0];
   const title = form.querySelector("input[type='text']").value;
   const categoryId = form.querySelector("select").value;
+
+  if (image && title && categoryId) {
+    disabled.classList.remove("disabledColor")
+    loadError.classList.remove('errorLoad')
+  } else{
+    loadError.classList.add('errorLoad')
+  };
 
   const formData = new FormData();
   formData.append("image", image);
@@ -171,6 +179,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
 function resetForm() {
   document.getElementById("preview-file").value="";
+  document.getElementById("imgLaod").value="";
   document.getElementById("titre").value="";
   document.getElementById("category").value="";
 }
@@ -178,39 +187,7 @@ function resetForm() {
 
 const disabled = document.getElementById("validImg");
 
-/*function disableDisabled() {
-  if (imageUrl.value && title.value && name.value) {
-    disabled.classList.remove("disabledColor")
-    disabled.removeAttribute("disabled")
-  }
-};*/
 
 imgLaod.addEventListener("click", () => {
   disabled.classList.remove("disabledColor")
-  disabled.removeAttribute("disabled")
 });
-
-/*
-const titre = document.getElementById("titre");
-const categorie = document.getElementById("categorie");
-const validImg = document.querySelector(".validImg");
-
-validImg.addEventListener("input", validFormImg);
-
-function validFormImg() {
-  if (imgLaod.value && titre.value && categorie.value) {
-    validImg.removeAttribute("disabled");
-    validImg.classList.add("disabled");
-  }
-};
-*/
-
-
-
-
-
-
-'http://localhost:5678/api/categories'
-
-
-
