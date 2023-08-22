@@ -62,7 +62,7 @@ const init = async () => {
     onDeleteWork: async (workId) => {
       try {
         await deleteWork(workId);
-        const updatedWorks = galleryWorks.filter((work) => work.id !== workId);
+        const updatedWorks = works.filter((work) => work.id !== workId);
         gallery.setGallery(updatedWorks);
         modal.updateModal(updatedWorks);
       } catch (err) {
