@@ -15,7 +15,7 @@ const createGallery = ({ works = [], isEditable = false, onDeleteWork }) => {
       figure.innerHTML = `
         <img alt="${work.title}" src="${work.imageUrl}"/>
         <figcaption>${work.title}</figcaption>
-        <p class="editNone">édite</p>
+        <p class="editNone">éditer</p>
       `;
 
       if (isEditable) {
