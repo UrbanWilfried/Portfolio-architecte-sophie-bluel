@@ -52,12 +52,12 @@ const init = async () => {
     filterNone.style.visibility = "hidden";
   }
 
-  const worksData = await fetchWorks();
-  const gallery = createGallery({ works: worksData });
+  const works = await fetchWorks();
+  const gallery = createGallery({ works: works });
   galleryContainer.appendChild(gallery.renderGallery());
 
   const modalGallery = createGallery({
-    works: worksData,
+    works: works,
     isEditable: true,
     onDeleteWork: async (workId) => {
       try {
@@ -87,7 +87,7 @@ const init = async () => {
 
   const filters = createFilters({
     onSelectFilter: (category) => {
-      const filteredWorks = worksData.filter((work) =>
+      const filteredWorks = works.filter((work) =>
         category === "all" ? work : work.category.name === category
       );
       gallery.setGallery(filteredWorks);

@@ -1,18 +1,18 @@
 const closeModal = document.querySelector(".exitModal");
 const closeModal2 = document.querySelector(".exitModal2");
-const ajouPhoto = document.querySelector(".ajouPhoto");
+const addImage = document.querySelector(".addImage");
 const section1 = document.querySelector(".section1");
 const section2 = document.querySelector(".section2");
 const previous = document.querySelector(".previous");
 const showDialog = document.querySelector("#showDialog");
-const imgLaod = document.getElementById("imgLaod");
+const imageGallery = document.getElementById("imageGallery");
 const previewFile = document.getElementById("preview-file");
 
 showDialog.addEventListener('click', () => {
   section1.style.display='block'
 });
 
-ajouPhoto.addEventListener('click', () => {
+addImage.addEventListener('click', () => {
   section1.style.display='none'
   section2.style.display='block'
 });
@@ -22,11 +22,11 @@ previous.addEventListener('click', () => {
   section2.style.display='none'
   framAddPhotoI.style.display='block'
   importImg.style.display='block'
-  framAddPhotoP.style.display='block'
+  containerUploadFile.style.display='block'
   previewFile.style.display='none'
   disabled.classList.add("disabledColor")
   disabled.getAttribute("disabled")
-  loadError.classList.remove('errorLoad')
+  errorLoad.classList.remove('errorLoad')
   resetForm();
 });
 
@@ -39,20 +39,20 @@ closeModal2.addEventListener('click', () => {
   section2.style.display='none'
   framAddPhotoI.style.display='block'
   importImg.style.display='block'
-  framAddPhotoP.style.display='block'
+  containerUploadFile.style.display='block'
   previewFile.style.display='none'
   disabled.classList.add("disabledColor")
   disabled.getAttribute("disabled")
-  loadError.classList.remove('errorLoad')
+  errorLoad.classList.remove('errorLoad')
   resetForm()
 });
 
-imgLaod.addEventListener('click', () => {
+imageGallery.addEventListener('click', () => {
   previewFile.style.display='block'
 });
 
 const form = document.getElementById("addWorkForm");
-const loadError = document.querySelector(".load");
+const errorLoad = document.querySelector(".errorMessage");
 
 const handleFormSubmit = () => {
   const image = form.querySelector("input[type='file']").files[0];
@@ -61,9 +61,9 @@ const handleFormSubmit = () => {
 
   if (image && title && categoryId) {
     disabled.classList.remove("disabledColor")
-    loadError.classList.remove('errorLoad')
+    errorLoad.classList.remove('errorLoad')
   } else{
-    loadError.classList.add('errorLoad')
+    errorLoad.classList.add('errorLoad')
   };
 
   const formData = new FormData();
@@ -133,7 +133,7 @@ logout.addEventListener('click', () => {
 
 const framAddPhotoI = document.querySelector(".framAddPhoto i")
 const importImg = document.querySelector(".importImg")
-const framAddPhotoP = document.querySelector(".framAddPhoto p")
+const containerUploadFile = document.querySelector(".framAddPhoto p")
       
 function createThumbnail(sFile,sId) {
   const oReader = new FileReader();
@@ -149,7 +149,7 @@ function createThumbnail(sFile,sId) {
   );
   framAddPhotoI.style.display='none'
   importImg.style.display='none'
-  framAddPhotoP.style.display='none'
+  containerUploadFile.style.display='none'
   oReader.readAsDataURL(sFile);
 }
 
@@ -179,13 +179,13 @@ document.addEventListener('DOMContentLoaded',function(){
 
 function resetForm() {
   document.getElementById("preview-file").value="";
-  document.getElementById("imgLaod").value="";
+  document.getElementById("imageGallery").value="";
   document.getElementById("title").value="";
   document.getElementById("category").value="";
 }
 
-const disabled = document.getElementById("validImg");
+const disabled = document.getElementById("submitWork");
 
-imgLaod.addEventListener("click", () => {
+imageGallery.addEventListener("click", () => {
   disabled.classList.remove("disabledColor")
 });
