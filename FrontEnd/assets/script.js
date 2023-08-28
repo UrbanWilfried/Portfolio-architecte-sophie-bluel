@@ -10,6 +10,8 @@ const showButton = document.getElementById("showDialog");
 const galleryContainer = document.getElementById("gallery");
 const token = localStorage.getItem("token");
 const filtersContainer = document.querySelector(".filter");
+const loginVisible = document.querySelector(".loginVisible");
+const logoutVisible = document.querySelector(".logoutVisible");
 
 const fetchWorks = async () => {
   const response = await fetch("http://localhost:5678/api/works");
@@ -50,6 +52,8 @@ const init = async () => {
     editImage.style.visibility = "visible";
     editProject.style.display = "flex";
     filterNone.style.visibility = "hidden";
+    loginVisible.style.display = "none";
+    logoutVisible.style.display = "block";
   }
 
   const works = await fetchWorks();
@@ -74,7 +78,12 @@ const init = async () => {
   const modal = createModal({
     gallery: modalGallery,
     onSave: async (formData) => {
-      if (!formData) return;
+      if (
+        !formData.has("image") &&
+        !formData.has("title") &&
+        !formData.has("category")
+      )
+        return;
       try {
         await addWork(formData);
       } catch (e) {
@@ -92,7 +101,7 @@ const init = async () => {
       );
       gallery.setGallery(filteredWorks);
     },
-  categories,
+    categories,
   });
   filtersContainer.appendChild(filters.renderFilters());
 
@@ -113,10 +122,42 @@ const init = async () => {
   const container = document.getElementById("select");
   container.appendChild(selectElement);
 
-    showButton.addEventListener("click", () => {
-      modal.showModal();
-      
-    });
+  showButton.addEventListener("click", () => {
+    modal.showModal();
+
+  });
+
+  const form = document.getElementById("addWorkForm");
+  const imageElement = form.querySelector("input[type='file']")
+  const titleElement = form.querySelector("input[type='text']");
+  const categoryElement = form.querySelector("select");
+  const disabled = document.getElementById("submitWork");
+  const errorLoad = document.querySelector(".errorMessage");
+
+  imageElement.addEventListener("change", () => {
+    checkValues()
+  })
+
+  titleElement.addEventListener("change", () => {
+    checkValues()
+  })
+
+  categoryElement.addEventListener("click", () => {
+    checkValues()
+  })
+
+  const checkValues = () => {
+    const imageValue = imageElement.files[0]
+    const titleValue = titleElement.value
+    const categoryValue = categoryElement.value
+
+    if (imageValue && titleValue && categoryValue) {
+      disabled.classList.remove("disabledColor");
+      errorLoad.classList.remove("errorLoad");
+    } else {
+      errorLoad.classList.add("errorLoad");
+    }
+  }
 };
 
 init();

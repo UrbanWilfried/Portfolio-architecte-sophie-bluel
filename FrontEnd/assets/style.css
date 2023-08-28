@@ -274,6 +274,12 @@ li a:hover {
 	margin-top: 150px;
 	margin-bottom: 200px;
 }
+.loginVisible {
+	display: block;
+}
+.logoutVisible {
+	display: none;
+}
 .buttonSumit {
 	font-family: 'Syne';
 	font-weight: 700;
